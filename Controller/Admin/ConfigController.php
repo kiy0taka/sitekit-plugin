@@ -142,6 +142,12 @@ class ConfigController extends AbstractController
                     $this->eccubeConfig['plugin_data_realdir'].'/SiteKit/google-site-verification.txt',
                     'google-site-verification: '.$token
                 );
+                if (is_dir($this->eccubeConfig['plugin_data_realdir'].'/GMC/')) {
+                    $filesystem->dumpFile(
+                        $this->eccubeConfig['plugin_data_realdir'].'/GMC/'.$token,
+                        'google-site-verification: '.$token
+                    );
+                }
             }
 
             $params = http_build_query([
